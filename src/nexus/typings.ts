@@ -37,11 +37,14 @@ export interface NexusGenScalars {
 }
 
 export interface NexusGenRootTypes {
+  Call: { // root type
+    agenda: string; // String!
+    name: string; // String!
+    phone: string; // String!
+    time: string; // String!
+  }
   Mutation: {};
   Query: {};
-  Todo: { // root type
-    title: string; // String!
-  }
 }
 
 export interface NexusGenAllTypes extends NexusGenRootTypes {
@@ -54,20 +57,31 @@ export interface NexusGenAllTypes extends NexusGenRootTypes {
 }
 
 export interface NexusGenFieldTypes {
+  Call: { // field return type
+    agenda: string; // String!
+    name: string; // String!
+    phone: string; // String!
+    time: string; // String!
+  }
   Mutation: { // field return type
+    addCall: string; // String!
     addTodo: string; // String!
     deleteTodo: string; // String!
   }
   Query: { // field return type
+    call: NexusGenRootTypes['Call'] | null; // Call
     todos: string[] | null; // [String!]
-  }
-  Todo: { // field return type
-    title: string; // String!
   }
 }
 
 export interface NexusGenArgTypes {
   Mutation: {
+    addCall: { // args
+      agenda?: string | null; // String
+      name?: string | null; // String
+      phone?: string | null; // String
+      time?: string | null; // String
+    }
     addTodo: { // args
       title?: string | null; // String
     }
@@ -82,7 +96,7 @@ export interface NexusGenAbstractResolveReturnTypes {
 
 export interface NexusGenInheritedFields {}
 
-export type NexusGenObjectNames = "Mutation" | "Query" | "Todo";
+export type NexusGenObjectNames = "Call" | "Mutation" | "Query";
 
 export type NexusGenInputNames = never;
 

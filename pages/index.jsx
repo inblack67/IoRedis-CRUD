@@ -2,6 +2,8 @@ import { useForm } from 'react-hook-form';
 import { useMutation, useQuery } from '@apollo/client';
 import { fetchTodosQuery, deleteTodoMutation } from '../src/queries';
 import AddTodo from '../components/AddTodo';
+import AddCall from '../components/AddCall';
+import Calls from '../components/Calls';
 
 const index = () => {
 	const { loading, data } = useQuery(fetchTodosQuery);
@@ -19,7 +21,7 @@ const index = () => {
 
 	return (
 		<div className='container'>
-			<p className='flow-text center'>Todos</p>
+			<p className='flow-text center grey-text'>Todos</p>
 			<ul className='collection'>
 				{data &&
 					data.todos &&
@@ -46,6 +48,8 @@ const index = () => {
 					))}
 			</ul>
 			<AddTodo />
+			<Calls />
+			<AddCall />
 		</div>
 	);
 };

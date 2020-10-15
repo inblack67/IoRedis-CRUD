@@ -18,5 +18,14 @@ export const Mutation = mutationType({
 				return 'Todo Deleted Successfully';
 			},
 		});
+
+		t.string('addCall', {
+			args: { name: stringArg(), phone: stringArg(), agenda: stringArg(), time: stringArg() },
+			resolve: async (_, { name, phone, agenda, time }, { client }) => {
+				await client.del('call');
+				await client.hmset('call', [ 'name', name, 'phone', phone, 'agenda', agenda, 'time', time ]);
+				return 'Call Added Successfully';
+			},
+		});
 	},
 });

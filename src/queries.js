@@ -17,3 +17,20 @@ export const deleteTodoMutation = gql`
 		deleteTodo(title: $title)
 	}
 `;
+
+export const addCallMutation = gql`
+	mutation($name: String!, $time: String!, $phone: String!, $agenda: String!) {
+		addCall(name: $name, time: $time, agenda: $agenda, phone: $phone)
+	}
+`;
+
+export const fetchCallQuery = gql`
+	{
+		call {
+			name
+			agenda
+			time
+			phone
+		}
+	}
+`;

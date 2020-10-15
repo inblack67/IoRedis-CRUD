@@ -3,9 +3,7 @@ import { useForm } from 'react-hook-form';
 import { addTodoMutation, fetchTodosQuery } from '../src/queries';
 
 const AddTodo = () => {
-	const { handleSubmit, register } = useForm({
-		title: 'duh',
-	});
+	const { handleSubmit, register } = useForm();
 
 	const [ addTodo, { loading } ] = useMutation(addTodoMutation, {
 		refetchQueries: [
