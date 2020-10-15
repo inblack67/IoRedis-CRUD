@@ -6,5 +6,6 @@ export const GQLDATE = decorateType(GraphQLDate, {
 	asNexusMethod: 'date',
 });
 
-export * from './Query';
 export * from './Todo';
+export * from './Query';
+export * from './Mutation';

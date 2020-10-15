@@ -9,6 +9,11 @@ representation of dates and times using the Gregorian calendar.
 """
 scalar Date
 
+type Mutation {
+  addTodo(title: String): String!
+  deleteTodo(title: String): String!
+}
+
 type Query {
   todos: [String!]
 }

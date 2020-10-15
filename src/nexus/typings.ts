@@ -37,6 +37,7 @@ export interface NexusGenScalars {
 }
 
 export interface NexusGenRootTypes {
+  Mutation: {};
   Query: {};
   Todo: { // root type
     title: string; // String!
@@ -53,6 +54,10 @@ export interface NexusGenAllTypes extends NexusGenRootTypes {
 }
 
 export interface NexusGenFieldTypes {
+  Mutation: { // field return type
+    addTodo: string; // String!
+    deleteTodo: string; // String!
+  }
   Query: { // field return type
     todos: string[] | null; // [String!]
   }
@@ -62,6 +67,14 @@ export interface NexusGenFieldTypes {
 }
 
 export interface NexusGenArgTypes {
+  Mutation: {
+    addTodo: { // args
+      title?: string | null; // String
+    }
+    deleteTodo: { // args
+      title?: string | null; // String
+    }
+  }
 }
 
 export interface NexusGenAbstractResolveReturnTypes {
@@ -69,7 +82,7 @@ export interface NexusGenAbstractResolveReturnTypes {
 
 export interface NexusGenInheritedFields {}
 
-export type NexusGenObjectNames = "Query" | "Todo";
+export type NexusGenObjectNames = "Mutation" | "Query" | "Todo";
 
 export type NexusGenInputNames = never;
 
